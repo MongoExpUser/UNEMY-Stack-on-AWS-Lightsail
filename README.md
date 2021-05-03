@@ -2,7 +2,7 @@
 
 <br>
 <strong>
-Deploys Ubuntu, NodeJS, Express and MySQL (UNEMY) Stack on AWS Lightsail with Python Terraform CDK.
+Deploys Ubuntu, NodeJS, ExpressJS and MySQL (UNEMY) Stack on AWS Lightsail with Python Terraform CDK.
 </strong>:
 
 
