@@ -16,8 +16,8 @@ This repo can be used to create the following resources with Terrform Python CDK
 
 5) Bash launch or start-up script (user data) for the installation of software, on the instance(s), including:
 
-  a) Additional Ubuntu OS Packages.
-  b) NodeJS
-  c) ExpressJS Web Server Framework
-  d) Other Node.js Packages and
-  d) MySQL
+   -  Additional Ubuntu OS Packages <br>
+   -  NodeJS <br>
+   -  ExpressJS Web Server Framework <br>
+   -  Other Node.js Packages and <br>
+   -  MySQL
