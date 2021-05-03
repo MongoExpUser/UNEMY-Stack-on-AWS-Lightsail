@@ -1,7 +1,9 @@
 # UNEM-Stack-on-AWS-Lightsail
 
-
-<strong>This repo can be used to create the following resources with Terrform Python CDK </strong>:
+<br>
+<strong>
+Deploys Ubuntu, NodeJS, Express and MySQL (UNEM) Stack on AWS Lightsail with Python Terraform CDK.
+</strong>:
 
 
 1) AWS Lightsail ssh key pair, assigned to instance(s) in Item 2 below.
