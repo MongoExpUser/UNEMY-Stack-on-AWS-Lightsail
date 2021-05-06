@@ -3,8 +3,9 @@
 <br>
 <strong>
 Deploys Ubuntu, NodeJS, ExpressJS and MySQL (UNEMY) Stack on AWS Lightsail with Python Terraform CDK.
-</strong>:
-
+</strong>
+<br><br>
+The  STACK deploys the following specific resources and software:
 
 1) AWS Lightsail ssh key pair, assigned to instance(s) in Item 2 below.
                                                                                                                                                  
