@@ -131,7 +131,6 @@ install_and_configure_nodejs_web_server () {
     sudo npm i memored
     sudo npm i mime
     sudo npm i mkdirp
-    sudo npm i mongodb
     sudo npm i mysql
     sudo npm i ocsp
     sudo npm i python-shell
