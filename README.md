@@ -29,7 +29,9 @@ The  STACK deploys the following specific resources and software:
 
 <strong>CDK for Terraform Application</strong>: https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf
   
-<br>
 
-##
-## <strong>Copyright © 2015 - present. MongoExpUser.  All Rights Reserved. </strong>
+# License
+
+Copyright © 2015 - present. MongoExpUser
+
+Licensed under the MIT license.
