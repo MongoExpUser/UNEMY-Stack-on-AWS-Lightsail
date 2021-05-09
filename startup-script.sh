@@ -4,7 +4,7 @@
 #                                                                                                   #
 #  Copyright © 2015 - present. MongoExpUser.  All Rights Reserved.                                  #
 #                                                                                                   #
-#  License: MIT - https://github.com/MongoExpUser/UNEM-Stack-on-AWS-Lightsail/blob/main/README.md   #
+#  License: MIT - https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/blob/main/README.md  #
 #                                                                                                   #
 #  @License Ends                                                                                    #
 #                                                                                                   #
