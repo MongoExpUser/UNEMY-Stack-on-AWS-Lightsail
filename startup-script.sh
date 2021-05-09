@@ -9,7 +9,7 @@
 #  @License Ends                                                                                    #
 #                                                                                                   #
 #...................................................................................................#
-#  startup-script.sh (lauch/start-up script) - performes the following actions:                     #
+#  startup-script.sh (lauch/start-up script) - performs the following actions:                      #
 #  1) Installs additional Ubuntu packages                                                           #
 #  2) Installs and configures Node.js v16.x and Express v5.0.0-alpha.8 web server framework         #
 #     Installs other node.js packages and set firewall rules for web server                         #
