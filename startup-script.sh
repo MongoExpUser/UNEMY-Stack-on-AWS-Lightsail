@@ -114,6 +114,7 @@ install_and_configure_nodejs_web_server () {
     sudo npm i express@5.0.0-alpha.8
     sudo npm i -g npm
     sudo npm i @mysql/xdevapi
+    sudo npm i aws-sdk
     sudo npm i bcryptjs
     sudo npm i bcrypt-nodejs
     sudo npm i bindings
