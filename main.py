@@ -171,8 +171,8 @@ def main():
         "lightsail_server_names" : ["server", "server"],
         "lightsail_server_blueprint_ids" : ["ubuntu_20_04", "ubuntu_20_04"],
         "lightsail_server_bundle_ids" : ["micro_2_0", "micro_2_0"],
-        "lightsail_server_tags_keys_version_nodejs" : ["NodeJS 16.0.0", "NodeJS 16.0.0"],
-        "lightsail_server_tags_keys_version_mysql" : ["MySQL 8.0.23", "MySQL 8.0.23"],
+        "lightsail_server_tags_keys_version_nodejs" : ["NodeJS 16.0.x", "NodeJS 16.0.x"],
+        "lightsail_server_tags_keys_version_mysql" : ["MySQL 8.0.x", "MySQL 8.0.x"],
         "lightsail_server_tags_empty_values" : ["", ""],
         "lightsail_server_static_ip_names" : ["static-ip", "static-ip"],
         # 3. launch or start-up script(s) variables
