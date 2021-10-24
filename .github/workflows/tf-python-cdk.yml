@@ -63,24 +63,24 @@ jobs:
       run: |-
         cat main.py <<EOF
         EOF
-        &&
-        cat startup-script.sh <<EOF
-        EOF
-        &&
-        cat variables-dev.json <<EOF
-        EOF
+        #&&
+        #cat startup-script.sh <<EOF
+        #EOF
+        #&&
+        #cat variables-dev.json <<EOF
+        #EOF
         
     - name: Copy Python Script, Bash Script & Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
         cat main.py <<EOF
         EOF
-        &&
-        cat startup-script.sh <<EOF
-        EOF
-        &&
-        cat variables-prod.json <<EOF
-        EOF
+        #&&
+        #cat startup-script.sh <<EOF
+        #EOF
+        #&&
+        #cat variables-prod.json <<EOF
+        #EOF
         
     - name: Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
