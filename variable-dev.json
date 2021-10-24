@@ -1,0 +1,21 @@
+{
+  "deploy_lightsail_instances" : "True",
+  "region" : "us-east-1",
+  "lightsail_server_availability_zone" : "us-east-1a",
+  "lightsail_server_ssh_key_pair_name" : "server-ssh-key-pair",
+  "lightsail_server_ssh_private_key" : "server-ssh-private-key",
+  "lightsail_server_ssh_private_key_file_name" : "server-ssh-private-key",
+  "lightsail_server_names" : ["server", "server"],
+  "lightsail_server_blueprint_ids" : ["ubuntu_20_04", "ubuntu_20_04"],
+  "lightsail_server_bundle_ids" : ["micro_2_0", "micro_2_0"],
+  "lightsail_server_tags_keys_version_nodejs" : ["NodeJS 16.0.x", "NodeJS 16.0.x"],
+  "lightsail_server_tags_keys_version_mysql" : ["MySQL 8.0.x", "MySQL 8.0.x"],
+  "lightsail_server_tags_empty_values" : ["", ""],
+  "lightsail_server_static_ip_names" : ["static-ip", "static-ip"],
+  "user_data_file_path" : "startup-script.sh",
+  "longer_prefix_or_suffix" : "True",
+  "org_name" : "org",
+  "project_name" : "proj",
+  "environment" : "dev",
+  "stack_name" :  "Deploys-Lightsail-Resources-on-AWS"
+}
