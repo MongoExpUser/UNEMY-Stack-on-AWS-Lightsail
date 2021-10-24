@@ -46,8 +46,7 @@ jobs:
          sudo npm install constructs@^10.0.0
          sudo mkdir $DEV
          cd $DEV
-         # use local state storage (change backend later)
-         sudo cdktf init --template="python-pip" --local --dist --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
+         sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
