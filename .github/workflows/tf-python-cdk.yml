@@ -51,12 +51,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": [
-              "aws@~> 3.0"
-            ] 
-         }'
-         #sleep 10
-         #sudo cdktf get
+            "terraformProviders": ["aws@~> 3.0"] 
+         }' > cdktf.json
+         sudo cdktf get
          
     - name: Copy Python Script
       run: |-
