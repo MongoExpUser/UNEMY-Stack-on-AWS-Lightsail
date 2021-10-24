@@ -17,10 +17,8 @@ jobs:
       PROD: 'no'
       DIFF: 'no'
       APPLY: 'no'
-      PROJECT_NAME: 'yes'
-      PROJECT_DESCRIPTION: 'yes'
-      #PROJECT_NAME: 'UNEMY-Stack-on-AWS-Lighsail'
-      #PROJECT_DESCRIPTION: 'Deploy UNEMY Stack on AWS Lighsail'
+      PROJECT_NAME: 'UNEMY-Stack-on-AWS-Lighsail'
+      PROJECT_DESCRIPTION: 'Deploy UNEMY Stack on AWS Lighsail'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
       #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
