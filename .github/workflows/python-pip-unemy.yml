@@ -1,9 +1,14 @@
-name: Python Terraform CDK Using Pip
+name: UNEMY-Stack-on-AWS-Lighsail
 
-on: [push]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+   # matches pull request for all branches and tag names
 
 jobs:
-  build-linux:
+  Ubuntu-Python-Terraform-CDK-Build:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
@@ -35,7 +40,7 @@ jobs:
          mkdir terraform_python_cdk
          cd terraform_python_cdk
          # store state locally for now (change backend later)
-         sudo cdktf init --template="python3-pip" --local
+         sudo cdktf init --template="python-pip" --local
          sudo npm install -a @cdktf/provider-aws
          sudo cdktf get
          
