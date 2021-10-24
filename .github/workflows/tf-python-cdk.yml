@@ -48,9 +48,11 @@ jobs:
          df -m
          free -m
          ls -af
+         cd /dev
+         ls -af
+         sudo chmod a+rwx /dev
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
-         sudo chmod a+rwx /
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
