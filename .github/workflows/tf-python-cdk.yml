@@ -57,7 +57,7 @@ jobs:
          }
          sudo cdktf get
          
-    - name: Terraform Python CDK modules and Input Files- Dev
+    - name: Python Script, Bash Script & Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
         cat main.py <<EOF
@@ -66,10 +66,10 @@ jobs:
         cat startup-script.sh <<EOF
         EOF
         &&
-        cat variables-dev.sd <<EOF
+        cat variables-dev.json <<EOF
         EOF
         
-    - name: Terraform Python CDK modules and Input Files - Prod
+    - name: Python Script, Bash Script & Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
         cat main.py <<EOF
@@ -78,7 +78,7 @@ jobs:
         cat startup-script.sh <<EOF
         EOF
         &&
-        cat variables-prod.sh <<EOF
+        cat variables-prod.json <<EOF
         EOF
         
     - name: Terraform CDK Plan
