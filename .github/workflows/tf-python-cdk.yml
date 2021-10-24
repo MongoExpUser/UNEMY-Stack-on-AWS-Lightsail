@@ -10,8 +10,6 @@ on:
 jobs:
   Ubuntu-Python-Terraform-CDK:
     runs-on: ubuntu-latest
-    #strategy:
-      #max-parallel: 5
     env:
       DEV: 'yes'
       PROD: 'no'
@@ -31,10 +29,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Set Up Python 3.9
+    - name: Set Up Python 3.7
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.7.
     
     - name: Install Dependencies
       run: | 
@@ -58,9 +56,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 2.0"] 
+            "terraformProviders": ["aws@~> 3.0"] 
          }' > cdktf.json
-         sudo cdktf get
+         #sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
