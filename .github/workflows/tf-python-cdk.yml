@@ -57,45 +57,45 @@ jobs:
             "terraformProviders": ["aws@~> 3.0"] 
          }' > cdktf.json
          sudo cdktf get
-         
-    - name: Copy Python Script
-      run: |-
-        cat main.py <<EOF
-        EOF
-        
-    - name: Copy Bash Script 
-      run: |-
-        cat startup-script.sh <<EOF
-        EOF
-        
-    - name: Copy Input JSON File - Dev
+             
+    - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
         cat variables-dev.json >> variables.json <<EOF
         EOF
         
-    - name: Copy Input JSON File - Prod
+    - name: Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
         cat variables-prod.json >> variables.json <<EOF
         EOF
+        
+    - name: Bash Start-Up Script 
+      run: |-
+        cat startup-script.sh <<EOF
+        EOF
+        
+    - name: Python Terraform CDK Script
+      run: |-
+        cat main.py <<EOF
+        EOF
 
-    - name: Terraform CDK Plan
+    - name: Python Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: sudo cdktf synth
       
-    - name: Terraform CDK Difference
+    - name: Python Terraform CDK Difference
       if:  (env.DIFF == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: sudo cdktf cdktf diff
       
-    - name: Terraform CDK Apply - Dev
+    - name: Python Terraform CDK Apply - Dev
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.DEV == 'yes'
       run: sudo cdktf deploy --auto-approve
     
-    - name: Terraform CDK Apply - Prod
+    - name: Python Terraform CDK Apply - Prod
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.PROD == 'yes'
       run: sudo cdktf deploy --auto-approve
   
-    - name: Terraform CDK Destroy
+    - name: Python Terraform CDK Destroy
       if: ${{ env.DESTROY == 'yes' }}
       run: sudo cdktf destroy --auto-approve
