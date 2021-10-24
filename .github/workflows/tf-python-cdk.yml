@@ -56,7 +56,7 @@ jobs:
          }
          sudo cdktf get
          
-    - name: Python Script, Bash Script & Input JSON File - Dev
+    - name: Copy Python Script, Bash Script & Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
         cat main.py <<EOF
@@ -68,7 +68,7 @@ jobs:
         cat variables-dev.json <<EOF
         EOF
         
-    - name: Python Script, Bash Script & Input JSON File - Prod
+    - name: Copy Python Script, Bash Script & Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
         cat main.py <<EOF
@@ -88,11 +88,11 @@ jobs:
       if:  (env.DIFF == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: sudo cdktf cdktf diff
       
-    - name: Terraform CDK Apply Dev
+    - name: Terraform CDK Apply - Dev
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.DEV == 'yes'
       run: sudo cdktf deploy --auto-approve
     
-    - name: Terraform CDK Apply Prod
+    - name: Terraform CDK Apply - Prod
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.PROD == 'yes'
       run: sudo cdktf deploy --auto-approve
   
