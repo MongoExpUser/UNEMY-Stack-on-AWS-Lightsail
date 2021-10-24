@@ -153,43 +153,20 @@ class LightsailStack(TerraformStack):
         confirm_four = (len(var.get("lightsail_server_tags_keys_version_mysql")) == len(var.get("lightsail_server_tags_empty_values")))
         return {"confirm" : (confirm_one == confirm_two == confirm_three == confirm_four), "length" : length }
     # End confirm_length_of_list_variables() method
+   
 # End LightsailStack() class
 
 def main():
-    variables = {
-        # 0.  specify instance type to deploy
-        "deploy_lightsail_instances" : "True",
-        # 1. provider's details
-        "region" : "us-east-1",
-        "shared_credentials_file" : "shared_credentials_file.txt",
-        # 2. lightsail variables - ssh key pair, instance, static-ip and static-ip attachment
-        "lightsail_server_availability_zone" : "us-east-1a",
-        "lightsail_server_ssh_key_pair_name" : "server-ssh-key-pair",
-        "lightsail_server_ssh_private_key" : "server-ssh-private-key",
-        "lightsail_server_ssh_private_key_file_name" : "server-ssh-private-key",
-         # note: length of the following lists must be equal to the number of instances to be deployed
-        "lightsail_server_names" : ["server", "server"],
-        "lightsail_server_blueprint_ids" : ["ubuntu_20_04", "ubuntu_20_04"],
-        "lightsail_server_bundle_ids" : ["micro_2_0", "micro_2_0"],
-        "lightsail_server_tags_keys_version_nodejs" : ["NodeJS 16.0.x", "NodeJS 16.0.x"],
-        "lightsail_server_tags_keys_version_mysql" : ["MySQL 8.0.x", "MySQL 8.0.x"],
-        "lightsail_server_tags_empty_values" : ["", ""],
-        "lightsail_server_static_ip_names" : ["static-ip", "static-ip"],
-        # 3. launch or start-up script(s) variables
-        # note 1: before running the cdk module, the bash file (launch/start-up script) must be in the CWD
-        # note 2: the CWD is assumed to be the location of the main.tf file
-        # note 3: the scripts installs: additional Ubuntu OS packages, node.js, express.js, other Node.js packages and mysql
-        "user_data_file_path" : "startup-script.sh",
-        # 4. prefix/suffix, environmental and stack variables
-        "longer_prefix_or_suffix" : "True",
-        "org_name" : "org",
-        "project_name" : "proj",
-        "environment" : "dev",
-        "stack_name" :  "Deploys-Lightsail-Resources-on-AWS"
-    }
-    app = App()
-    LightsailStack(app, variables.get("stack_name"), variables)
-    app.synth()
+    filename = "variables.json"
+    variables = None
+    if filename:
+        with open(join(getcwd(), filename)) as json_data_from_file:
+            variables = load(json_data_from_file)
+            
+    if variables:
+        app = App()
+        LightsailStack(app, variables.get("stack_name"), variables)
+        app.synth()
 # End main() function
     
 if __name__ in ["__main__"]:
