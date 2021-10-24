@@ -48,11 +48,11 @@ jobs:
          cd /$DIRECTORY
          df -m
          free -m
-         sudo chmod a+rwx /$DIRECTORY/
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo npm install cdktf@^0.7
          sudo npm install constructs@^10.0.0
+         sudo chmod 777 *.*
          pwd
          ls
          sudo echo ' {
