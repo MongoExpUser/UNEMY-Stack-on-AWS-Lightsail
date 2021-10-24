@@ -41,6 +41,10 @@ jobs:
       run: | 
          sudo apt -y install python3-pip awscli
          python3 -m pip install boto3 --upgrade awscli
+         curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+         sudo echo -e "\n"
+         sudo sudo apt install -y nodejs
+         sudo echo -e "\n"
          sudo apt install npm
          sudo npm install -g cdktf-cli
          sudo npm install -g cdktf-cli@next
