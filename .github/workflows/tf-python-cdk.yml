@@ -50,11 +50,12 @@ jobs:
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
-            "app": "python3 main.py",
+            "app": "python3 ./main.py",
             "terraformProviders": [
               "aws@~> 3.0"
             ] 
          }'
+         sleep 10
          sudo cdktf get
          
     - name: Copy Python Script, Bash Script & Input JSON File - Dev
