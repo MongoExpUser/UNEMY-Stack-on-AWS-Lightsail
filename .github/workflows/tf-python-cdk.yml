@@ -53,7 +53,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 3.0"] 
+            "terraformProviders": [
+              "aws@~> 3.0"
+            ] 
          }'
          sudo cdktf get
          
