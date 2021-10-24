@@ -41,21 +41,19 @@ jobs:
          sudo apt install npm
          sudo npm install -g cdktf-cli
          sudo npm install -g cdktf-cli@next
-         sudo mkdir env.DEV
-         cd env.DEV
+         sudo mkdir $DEV
+         cd $DEV
          # store state locally for now (change backend later)
          sudo cdktf init --template="python-pip" --local
-         echo -e env.PROJECT_NAME
+         echo -e $PROJECT_NAME
          echo -e "Y"
-         echo -e env.PROJECT_DESCRIPTION
+         echo -e $PROJECT_DESCRIPTION
          echo -e "Y"
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": [
-            "aws@~> 3.0"
-           ]
+            "terraformProviders": ["aws@~> 3.0"]
          }
          sudo cdktf get
          
@@ -87,16 +85,12 @@ jobs:
       
     - name: Terraform CDK Apply Dev
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.DEV == 'yes'
-      run: sudo cdktf deploy
+      run: sudo cdktf deploy --auto-approve
     
     - name: Terraform CDK Apply Prod
       if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.PROD == 'yes'
-      run: terraform apply -var-file=prod.auto.tfvars -auto-approve
+      run: sudo cdktf deploy --auto-approve
   
     - name: Terraform CDK Destroy
       if: ${{ env.DESTROY == 'yes' }}
-      run: sudo cdktf destroy
-
-    - name: Invoke Terraform Python CDK modules - Dev
-      if: ${{ env.DEV == 'yes' }}
-      run: python3 main.py
+      run: sudo cdktf destroy --auto-approve
