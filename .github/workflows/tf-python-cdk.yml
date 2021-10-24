@@ -17,9 +17,9 @@ jobs:
       PROD: 'no'
       DIFF: 'no'
       APPLY: 'no'
-      DIRECTORY: 'tf_py_cdk'
       PROJECT_NAME: 'UNEMY-Stack-on-AWS-Lighsail'
       PROJECT_DESCRIPTION: 'Deploy UNEMY Stack on AWS Lighsail'
+      DIRECTORY: 'deploy'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
       #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -45,10 +45,12 @@ jobs:
          sudo npm install -g cdktf-cli@next
          sudo npm install cdktf@^0.7
          sudo npm install constructs@^10.0.0
+         cd /
          df -m
          free -m
          sudo mkdir $DIRECTORY
          cd $DIRECTORY
+         df -m
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo chmod a+rwx $DIRECTORY
