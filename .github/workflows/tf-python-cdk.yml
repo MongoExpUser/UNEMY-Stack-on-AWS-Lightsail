@@ -29,14 +29,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.9
     
     - name: Install Dependencies
       run: | 
-         sudo apt -y install python3.9 python3-pip awscli
+         sudo apt -y install python3-pip awscli
          python3 -m pip install boto3 --upgrade awscli
          sudo apt install npm
          sudo npm install -g cdktf-cli
