@@ -8,7 +8,7 @@ on:
    # matches pull request for all branches and tag names
 
 jobs:
-  Ubuntu-Python-Terraform-CDK-Build:
+  Ubuntu-Python-Terraform-CDK:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
