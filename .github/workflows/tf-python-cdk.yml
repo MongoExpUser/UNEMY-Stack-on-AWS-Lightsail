@@ -29,7 +29,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9
+    
+    - name: Set Up Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
@@ -45,8 +46,8 @@ jobs:
          cd $DEV
          # use local state storage (change backend later)
          sudo cdktf init --template="python-pip" --local --dist
-         echo yes
-         echo yes
+         sudo echo $PROJECT_NAME
+         sudo echo $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
