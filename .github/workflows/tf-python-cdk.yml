@@ -58,30 +58,28 @@ jobs:
          #sleep 10
          #sudo cdktf get
          
-    - name: Copy Python Script, Bash Script & Input JSON File - Dev
+    - name: Copy Python Script
+      run: |-
+        cat main.py <<EOF
+        EOF
+        
+    - name: Copy Bash Script 
+      run: |-
+        cat startup-script.sh <<EOF
+        EOF
+        
+    - name: Copy Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
-        cat main.py <<EOF
+        cat variables-dev.json >> variables.json <<EOF
         EOF
-        #&&
-        #cat startup-script.sh <<EOF
-        #EOF
-        #&&
-        #cat variables-dev.json <<EOF
-        #EOF
         
-    - name: Copy Python Script, Bash Script & Input JSON File - Prod
+    - name: Copy Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
-        cat main.py <<EOF
+        cat variables-prod.json >> variables.json <<EOF
         EOF
-        #&&
-        #cat startup-script.sh <<EOF
-        #EOF
-        #&&
-        #cat variables-prod.json <<EOF
-        #EOF
-        
+
     - name: Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: sudo cdktf synth
