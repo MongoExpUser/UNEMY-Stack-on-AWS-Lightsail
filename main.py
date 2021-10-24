@@ -40,7 +40,7 @@ class LightsailStack(TerraformStack):
         self.deploy_ls_instances = self.var.get("deploy_lightsail_instances")
         self.provider = AwsProvider(self, 'Aws', region=self.var.get("region"), shared_credentials_file=self.var.get("shared_credentials_file"))
         
-        if (self.deploy_ls_instances and self.provider):
+        if ((self.deploy_ls_instances == "True") and self.provider):
             # create lightsail resoures (instance(s), static ip(s) and static ip attachment(s)) and their outputs
             # 1. define variables
             ls_ssh_private_key_and_name_list = []
@@ -49,7 +49,7 @@ class LightsailStack(TerraformStack):
             ls_static_ip_output_list = []
             ls_static_ip_attachment_output_list = []
             prefix = None
-            if self.longer_prefix_or_suffix:
+            if self.longer_prefix_or_suffix == "True":
                 prefix = "{}{}{}{}{}{}".format(self.var.get("org_name"), "-", self.var.get("project_name"), "-", self.var.get("environment"), "-")
             else:
                 prefix = "{}{}".format(self.var.get("environment"), "-")
@@ -158,7 +158,7 @@ class LightsailStack(TerraformStack):
 def main():
     variables = {
         # 0.  specify instance type to deploy
-        "deploy_lightsail_instances" : True,
+        "deploy_lightsail_instances" : "True",
         # 1. provider's details
         "region" : "us-east-1",
         "shared_credentials_file" : "shared_credentials_file.txt",
@@ -181,7 +181,7 @@ def main():
         # note 3: the scripts installs: additional Ubuntu OS packages, node.js, express.js, other Node.js packages and mysql
         "user_data_file_path" : "startup-script.sh",
         # 4. prefix/suffix, environmental and stack variables
-        "longer_prefix_or_suffix" : True,
+        "longer_prefix_or_suffix" : "True",
         "org_name" : "org",
         "project_name" : "proj",
         "environment" : "dev",
