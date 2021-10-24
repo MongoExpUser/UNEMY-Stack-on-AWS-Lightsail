@@ -43,8 +43,8 @@ jobs:
          sudo npm install -g cdktf-cli@next
          sudo mkdir $DEV
          cd $DEV
-         # store state locally for now (change backend later)
-         sudo cdktf init --template="python-pip" --local
+         sudo cdktf init --template="python-pip" --local # state locally (change backend later)
+         echo -e "Y"
          echo -e $PROJECT_NAME
          echo -e "Y"
          echo -e $PROJECT_DESCRIPTION
@@ -57,22 +57,28 @@ jobs:
          }
          sudo cdktf get
          
-    - name: Copy Terraform Python CDK modules - Dev
+    - name: Terraform Python CDK modules and Input Files- Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
-        cat main-dev.py <<EOF
+        cat main.py <<EOF
         EOF
         &&
         cat startup-script.sh <<EOF
+        EOF
+        &&
+        cat variables-dev.sd <<EOF
         EOF
         
-    - name: Copy Terraform Python CDK modules - Prod
+    - name: Terraform Python CDK modules and Input Files - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
-        cat main-prod.py <<EOF
+        cat main.py <<EOF
         EOF
         &&
         cat startup-script.sh <<EOF
+        EOF
+        &&
+        cat variables-prod.sh <<EOF
         EOF
         
     - name: Terraform CDK Plan
