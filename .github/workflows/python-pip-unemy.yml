@@ -8,7 +8,7 @@ jobs:
     strategy:
       max-parallel: 5
     env:
-      DEV: 'no'
+      DEV: 'yes'
       PROD: 'no'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -27,7 +27,8 @@ jobs:
     
     - name: Install Dependencies
       run: | 
-         sudo apt-get install -y python3-pip awscli
+         #sudo apt-get install -y python3-pip awscli
+         sudo apt-get -y install python3.9 python3-pip awscli
          python3 -m pip install boto3 --upgrade awscli
          
     - name: Copy Terraform Python CDK modules - Dev
@@ -39,6 +40,6 @@ jobs:
         cat startup-script.sh <<EOF
         EOF
 
-    - name: Invoke Terraform Python CDK modules - Dev
-      if: ${{ env.DEV == 'yes' }}
-      run: python3 main.py
+    #- name: Invoke Terraform Python CDK modules - Dev
+    #  if: ${{ env.DEV == 'yes' }}
+    #  run: python3 main.py
