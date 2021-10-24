@@ -44,11 +44,10 @@ jobs:
          sudo mkdir $DEV
          cd $DEV
          sudo cdktf init --template="python-pip" --local # state locally (change backend later)
-         echo -e "Y"
-         echo -e $PROJECT_NAME
-         echo -e "Y"
-         echo -e $PROJECT_DESCRIPTION
-         echo -e "Y"
+         echo -e 'yes'
+         echo -e 'yes'
+         #echo -e $PROJECT_NAME
+         #echo -e $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
