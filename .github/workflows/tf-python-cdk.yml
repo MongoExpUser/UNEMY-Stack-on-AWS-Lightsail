@@ -40,7 +40,6 @@ jobs:
     - name: Install Dependencies
       run: | 
          sudo apt-get -y install python3-pip awscli
-         python3 -m pip install -r requirements.txt
          python3 -m pip install --upgrade pip
          python3 -m pip install boto3 --upgrade awscli
          curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
