@@ -10,8 +10,8 @@ on:
 jobs:
   Ubuntu-Python-Terraform-CDK:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
+    #strategy:
+      #max-parallel: 5
     env:
       DEV: 'yes'
       PROD: 'no'
