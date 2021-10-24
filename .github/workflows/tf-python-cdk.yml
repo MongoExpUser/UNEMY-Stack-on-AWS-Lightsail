@@ -45,15 +45,12 @@ jobs:
          sudo npm install -g cdktf-cli@next
          sudo npm install cdktf@^0.7
          sudo npm install constructs@^10.0.0
-         cd /
          df -m
          free -m
-         sudo mkdir $DIRECTORY
-         cd $DIRECTORY
-         df -m
+         ls -af
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
-         sudo chmod a+rwx $DIRECTORY
+         sudo chmod a+rwx /
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
