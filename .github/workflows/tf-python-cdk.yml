@@ -15,6 +15,8 @@ jobs:
     env:
       DEV: 'yes'
       PROD: 'no'
+      DIFF: 'no'
+      APPLY: 'no'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
       #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -37,8 +39,8 @@ jobs:
          sudo apt install npm
          sudo npm install -g cdktf-cli
          sudo npm install -g cdktf-cli@next
-         mkdir terraform_python_cdk
-         cd terraform_python_cdk
+         sudo mkdir ${env.DEV}
+         cd ${env.DEV}
          # store state locally for now (change backend later)
          sudo cdktf init --template="python-pip" --local
          sudo npm install -a @cdktf/provider-aws
@@ -47,12 +49,41 @@ jobs:
     - name: Copy Terraform Python CDK modules - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
-        cat main.py <<EOF
+        cat main-dev.py <<EOF
         EOF
         &&
         cat startup-script.sh <<EOF
         EOF
+        
+    - name: Copy Terraform Python CDK modules - Prod
+      if: ${{ env.PROD == 'yes' }}
+      run: |-
+        cat main-prod.py <<EOF
+        EOF
+        &&
+        cat startup-script.sh <<EOF
+        EOF
+        
+    - name: Terraform CDK Plan
+      if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
+      run: sudo cdktf synth
+      
+    - name: Terraform CDK Difference
+      if:  (env.DIFF == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
+      run: sudo cdktf cdktf diff
+      
+    - name: Terraform CDK Apply Dev
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.DEV == 'yes'
+      run: sudo cdktf deploy
+    
+    - name: Terraform CDK Apply Prod
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push' && env.APPLY == 'yes' && env.PROD == 'yes'
+      run: terraform apply -var-file=prod.auto.tfvars -auto-approve
+  
+    - name: Terraform CDK Destroy
+      if: ${{ env.DESTROY == 'yes' }}
+      run: sudo cdktf destroy
 
-    #- name: Invoke Terraform Python CDK modules - Dev
-    #  if: ${{ env.DEV == 'yes' }}
-    #  run: python3 main.py
+    - name: Invoke Terraform Python CDK modules - Dev
+      if: ${{ env.DEV == 'yes' }}
+      run: python3 main.py
