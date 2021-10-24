@@ -46,7 +46,7 @@ jobs:
          sudo npm install cdktf@^0.7
          sudo npm install constructs@^10.0.0
          df -m
-         cd /home
+         free -m
          sudo mkdir $DIRECTORY
          cd $DIRECTORY
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
