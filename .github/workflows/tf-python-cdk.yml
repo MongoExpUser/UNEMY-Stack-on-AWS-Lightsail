@@ -43,11 +43,8 @@ jobs:
          sudo npm install -g cdktf-cli@next
          sudo mkdir $DEV
          cd $DEV
-         sudo cdktf init --template="python-pip" --local # state locally (change backend later)
-         echo -e 'yes'
-         echo -e 'yes'
-         #echo -e $PROJECT_NAME
-         #echo -e $PROJECT_DESCRIPTION
+         # use local state storage (change backend later)
+         sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME  --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo echo ' {
             "language": "python",
