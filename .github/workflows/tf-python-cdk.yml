@@ -40,14 +40,14 @@ jobs:
          python3 -m pip install boto3 --upgrade awscli
          sudo apt-get install npm
          sudo npm install -g cdktf-cli
+         sudo npm install cdktf@^0.7.0
+         sudo npm install constructs@^10.0.9
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
          df -m
          free -m
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
-         #sudo npm install cdktf@^0.7.0-pre.383
-         #sudo npm install constructs@^10.0.9
          sudo npm install -a @cdktf/provider-aws
          sudo chmod 777 *.*
          pwd
