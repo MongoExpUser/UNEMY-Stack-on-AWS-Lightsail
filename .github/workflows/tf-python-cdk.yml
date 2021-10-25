@@ -60,7 +60,11 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.24"] 
          }' > /$DIRECTORY/cdktf.json
-         sudo cdktf get
+         #sudo cdktf get
+         df -m
+         free -m
+         pwd
+         ls
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
