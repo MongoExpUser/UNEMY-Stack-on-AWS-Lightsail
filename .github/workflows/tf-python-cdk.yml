@@ -70,22 +70,26 @@ jobs:
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
+        sudo chmod 777 *.*
         cat variables-dev.json >> /$DIRECTORY/variables.json <<EOF
         EOF
         
     - name: Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
+        sudo chmod 777 *.*
         cat variables-prod.json >> /$DIRECTORY/variables.json <<EOF
         EOF
         
     - name: Bash Start-Up Script 
       run: |-
+        sudo chmod 777 *.*
         cat startup-script.sh /$DIRECTORY/startup-script.sh <<EOF
         EOF
         
     - name: Python Terraform CDK Script
       run: |-
+        sudo chmod 777 *.*
         cat main.py /$DIRECTORY/main.py<<EOF
         EOF
         
