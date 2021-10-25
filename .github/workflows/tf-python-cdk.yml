@@ -43,7 +43,7 @@ jobs:
          sudo npm install -g cdktf-cli@^0.7.0
          sudo npm install -g cdktf@^0.7.0
          sudo npm install -g constructs@^10.0.9
-         sudo npm install -g @types/node@14.17.27
+         #sudo npm install -g @types/node@14.17.27
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
@@ -59,6 +59,7 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.24"] 
          }' > cdktf.json
+         sudo npm install @types/node@14.17.27
          sudo cdktf get
              
     - name: Input JSON File - Dev
