@@ -46,10 +46,10 @@ jobs:
          cd /$DIRECTORY
          df -m
          free -m
-         sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
+         sudo cdktf init --template="python-pip" --cdktf-version="0.6.4" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
-         sudo npm install cdktf@^0.7
-         sudo npm install constructs@^10.0.0
+         #sudo npm install cdktf@^0.7
+         #sudo npm install constructs@^10.0.0
          sudo chmod 777 *.*
          pwd
          ls
@@ -58,7 +58,7 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.0"] 
          }' > cdktf.json
-         #sudo cdktf get
+         sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
