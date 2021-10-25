@@ -65,8 +65,7 @@ jobs:
          #     "aws-sdk": "^2.1004.0"
          #   }
          #}' > package.json
-         sudo npm install cdktf@^0.7.0
-         sudo npm install constructs@^10.0.9
+         sudo npm install @types/node@14.17.27
          sudo npm install aws-sdk
          sudo cdktf get
              
