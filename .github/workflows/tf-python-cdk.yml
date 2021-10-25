@@ -59,17 +59,7 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.24"] 
          }' > cdktf.json
-         #sudo chmod 777 *.*
-         #sudo echo ' {
-         #   "dependencies": {
-         #     "@cdktf/provider-aws": "^3.24",
-         #     "aws-sdk": "^2.1004.0"
-         #   }
-         #}' > package.json
-         #cd /deploy/npm/node_modules/cdktf-cli
-         #sudo npm install @types/node@14.17.27
-         #cd /$DIRECTORY
-         #sudo cdktf get
+         sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
