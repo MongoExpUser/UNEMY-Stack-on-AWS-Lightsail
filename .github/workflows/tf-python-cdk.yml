@@ -45,11 +45,11 @@ jobs:
          sudo npm install -g constructs@^10.0.9
          #sudo npm install -g @types/node@14.17.27
          cd /
-         #sudo mkdir $DIRECTORY
-         #cd /$DIRECTORY
+         sudo mkdir $DIRECTORY
+         cd /$DIRECTORY
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
-         sudo npm install -a @cdktf/provider-aws
-         sudo npm install @types/node@14.17.27
+         sudo npm install -a @cdktf/provider-aws @types/node@14.17.27
+         cd /$DIRECTORY
          df -m
          free -m
          pwd
@@ -59,30 +59,38 @@ jobs:
             "language": "python",
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.24"] 
-         }' > cdktf.json
+         }' > /$DIRECTORY/cdktf.json
          sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
-        cat variables-dev.json >> variables.json <<EOF
+        cat variables-dev.json >> /$DIRECTORY/variables.json <<EOF
         EOF
         
     - name: Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
-        cat variables-prod.json >> variables.json <<EOF
+        cat variables-prod.json >> /$DIRECTORY/variables.json <<EOF
         EOF
         
     - name: Bash Start-Up Script 
       run: |-
-        cat startup-script.sh <<EOF
+        cat startup-script.sh /$DIRECTORY/startup-script.sh <<EOF
         EOF
         
     - name: Python Terraform CDK Script
       run: |-
-        cat main.py <<EOF
+        cat main.py /$DIRECTORY/main.py<<EOF
         EOF
+        
+    - name: Current Working Directory, Files & Sizes
+      run: | 
+         cd /$DIRECTORY/
+         df -m
+         free -m
+         pwd
+         ls
 
     - name: Python Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
