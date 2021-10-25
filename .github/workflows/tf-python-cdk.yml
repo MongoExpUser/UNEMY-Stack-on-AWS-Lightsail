@@ -65,7 +65,7 @@ jobs:
               "aws-sdk": "^2.1004.0",
             }
          }' > package.json
-         #sudo cdktf get
+         sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
