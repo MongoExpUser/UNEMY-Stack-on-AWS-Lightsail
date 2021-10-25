@@ -40,8 +40,8 @@ jobs:
          python3 -m pip install boto3 --upgrade awscli
          sudo apt-get install npm
          sudo npm install -g cdktf-cli
-         sudo npm install cdktf@^0.7.0
-         sudo npm install constructs@^10.0.9
+         sudo npm install cdktf-cli@^0.7.0
+         sudo npm install constructs-cli@^10.0.9
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
@@ -55,9 +55,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 3.42"] 
+            "terraformProviders": ["aws@~> 3.42", docker@~> 2.0"] 
          }' > cdktf.json
-         sudo cdktf get
+         #sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
