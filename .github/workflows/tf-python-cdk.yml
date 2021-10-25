@@ -55,8 +55,14 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 3.0"] 
+            "terraformProviders": ["aws@~> 3.24"] 
          }' > cdktf.json
+         sudo echo ' {
+            "dependencies": {
+              "@cdktf/provider-aws": "^3.24",
+              "aws-sdk": "^2.1004.0",
+            }
+         }' > package.json
          #sudo cdktf get
              
     - name: Input JSON File - Dev
