@@ -43,6 +43,7 @@ jobs:
          sudo npm install -g cdktf-cli@^0.7.0
          sudo npm install -g cdktf@^0.7.0
          sudo npm install -g constructs@^10.0.9
+         sudo npm install -g @types/node@14.17.27
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
@@ -65,9 +66,10 @@ jobs:
          #     "aws-sdk": "^2.1004.0"
          #   }
          #}' > package.json
-         sudo npm install @types/node@14.17.27
-         sudo npm install aws-sdk
-         sudo cdktf get
+         #cd /deploy/npm/node_modules/cdktf-cli
+         #sudo npm install @types/node@14.17.27
+         #cd /$DIRECTORY
+         #sudo cdktf get
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
