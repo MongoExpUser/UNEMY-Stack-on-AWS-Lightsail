@@ -45,13 +45,13 @@ jobs:
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
-         df -m
-         free -m
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
-         sudo chmod 777 *.*
+         df -m
+         free -m
          pwd
          ls
+         sudo chmod 777 *.*
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
