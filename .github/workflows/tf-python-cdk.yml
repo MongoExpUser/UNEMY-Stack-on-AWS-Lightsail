@@ -39,7 +39,7 @@ jobs:
          sudo apt-get -y install python3-pip awscli
          python3 -m pip install boto3 --upgrade awscli
          sudo apt-get install npm
-         sudo npm install -g cdktf-cli^0.7.0
+         sudo npm install -g cdktf-cli@^0.7.0
          #sudo npm install cdktf-cli@^0.7.0
          #sudo npm install constructs@^10.0.9
          cd /
