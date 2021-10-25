@@ -86,7 +86,7 @@ jobs:
         
     - name: Python Terraform CDK Script
       run: |-
-        cat main.py >> main.py<<EOF
+        cat main.py <<EOF
         EOF
         
     - name: Current Working Directory, Files & Sizes
