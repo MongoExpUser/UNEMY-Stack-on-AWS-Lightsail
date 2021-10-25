@@ -81,7 +81,7 @@ jobs:
         
     - name: Bash Start-Up Script 
       run: |-
-        cat startup-script.sh >> startup-script.sh <<EOF
+        cat startup-script.sh <<EOF
         EOF
         
     - name: Python Terraform CDK Script
