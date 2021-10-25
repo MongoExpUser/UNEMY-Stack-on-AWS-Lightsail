@@ -50,7 +50,7 @@ jobs:
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws @types/node@14.17.27
          sudo chmod 777 *.*
-         cd /$DIRECTORY
+         cd /$DIRECTORY/
          df -m
          free -m
          pwd
@@ -70,6 +70,7 @@ jobs:
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
       run: |-
+        cd /$DIRECTORY/
         sudo chmod 777 *.*
         cat variables-dev.json >> /$DIRECTORY/variables.json <<EOF
         EOF
@@ -77,18 +78,21 @@ jobs:
     - name: Input JSON File - Prod
       if: ${{ env.PROD == 'yes' }}
       run: |-
+        cd /$DIRECTORY/
         sudo chmod 777 *.*
         cat variables-prod.json >> /$DIRECTORY/variables.json <<EOF
         EOF
         
     - name: Bash Start-Up Script 
       run: |-
+        cd /$DIRECTORY/
         sudo chmod 777 *.*
         cat startup-script.sh /$DIRECTORY/startup-script.sh <<EOF
         EOF
         
     - name: Python Terraform CDK Script
       run: |-
+        cd /$DIRECTORY/
         sudo chmod 777 *.*
         cat main.py /$DIRECTORY/main.py<<EOF
         EOF
