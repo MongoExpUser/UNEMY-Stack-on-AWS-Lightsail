@@ -58,6 +58,7 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.24"] 
          }' > cdktf.json
+         sudo chmod 777 *.*
          sudo echo ' {
             "dependencies": {
               "@cdktf/provider-aws": "^3.24",
