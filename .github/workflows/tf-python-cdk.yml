@@ -42,6 +42,7 @@ jobs:
          sudo npm install -g cdktf-cli
          sudo npm install cdktf-cli@^0.7.0
          sudo npm install constructs-cli@^10.0.9
+         sudo npm install react@^17.0.2
          cd /
          sudo mkdir $DIRECTORY
          cd /$DIRECTORY
