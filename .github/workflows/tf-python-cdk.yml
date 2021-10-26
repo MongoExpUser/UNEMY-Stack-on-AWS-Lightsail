@@ -29,7 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        path: ./
+        path: /
     
     - name: Set Up Python 3.8
       uses: actions/setup-python@v2
@@ -68,8 +68,8 @@ jobs:
          free -m
          pwd
          ls
-         sudo scp -r ./variables-dev.json variables.json
-         sudo scp -r ./.github/workflows/tf-python-cdk.yml tf-python-cdk.yml
+         sudo scp -r /variables-dev.json /$DIRECTORY/variables.json
+         sudo scp -r ./.github/workflows/tf-python-cdk.yml /$DIRECTORY/tf-python-cdk.yml
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
