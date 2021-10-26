@@ -11,7 +11,7 @@ jobs:
   Ubuntu-Python-Terraform-CDK:
     runs-on: ubuntu-latest
     env:
-      DEV: 'no'
+      DEV: 'yes'
       PROD: 'no'
       DIFF: 'no'
       APPLY: 'no'
