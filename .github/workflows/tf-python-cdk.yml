@@ -67,12 +67,6 @@ jobs:
          pwd
          ls
          sudo scp -r variables-dev.json variables-dev-vanila.json
-         
-    - name: Test Copy File
-      uses: canastro/copy-file-action@master
-      with:
-        source: 'variables-dev.json'
-        target: 'variables.json'
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
