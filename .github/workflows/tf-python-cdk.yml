@@ -45,9 +45,8 @@ jobs:
          sudo npm install -g cdktf-cli@^0.7.0
          sudo npm install -g cdktf@^0.7.0
          sudo npm install -g constructs@^10.0.9
-         ##cd /
+         cd /
          sudo mkdir $CDKTF_INIT_DIRECTORY
-         ##cd /$CDKTF_INIT_DIRECTORY
          cd $CDKTF_INIT_DIRECTORY
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws @types/node@14.17.27
