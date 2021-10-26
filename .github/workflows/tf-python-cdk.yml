@@ -81,11 +81,11 @@ jobs:
       
     - name: Copy Bash Start-Up Script 
     #  run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/startup-script.sh ./$CDKTF_INIT_DIRECTORY/startup-script.sh
-      run: sudo scp -r ./$CDKTF_INIT_DIRECTORY/startup-script.sh ./$CDKTF_INIT_DIRECTORY/startup-script.sh
+      run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
       
     - name: Copy Python Terraform CDK Script
     #  run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/main.py ./$CDKTF_INIT_DIRECTORY/main.py
-      run: sudo scp -r ./$CDKTF_INIT_DIRECTORY/main.py ./$CDKTF_INIT_DIRECTORY/main.py
+      run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
         
     - name: Current Working Directory, Files & Sizes
       run: | 
