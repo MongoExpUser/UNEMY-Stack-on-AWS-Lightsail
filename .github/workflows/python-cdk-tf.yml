@@ -65,7 +65,7 @@ jobs:
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
-        #cd ./$CDKTF_INIT_DIRECTORY
+        cd ./$CDKTF_INIT_DIRECTORY
         pwd
         df -m
         free -m
@@ -78,7 +78,7 @@ jobs:
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
         sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
-        #cd ./$CDKTF_INIT_DIRECTORY
+        cd ./$CDKTF_INIT_DIRECTORY
         pwd
         df -m
         free -m
