@@ -19,7 +19,8 @@ jobs:
       PROJECT_DESCRIPTION: 'Deploy UNEMY On AWS Lighsail'
       CDKTF_INIT_DIRECTORY: 'init'
       BASE_DIRECTORY: '/home/runner/work'
-      REPO_NAME: 'UNEMY-Stack-on-AWS-Lightsail'
+      REPO_NAME: ${{ github.event.repository.name }} 
+      # 'UNEMY-Stack-on-AWS-Lightsail'
       CDKTF_VERSION: '0.7.0'
       CONSTRUCTS_VERSION: '10.0.9'
       NODEJS_VERSION: '17.0.1'
