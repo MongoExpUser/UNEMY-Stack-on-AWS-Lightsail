@@ -66,7 +66,8 @@ jobs:
          free -m
          pwd
          ls
-         sudo scp -r variables-dev.json variables-dev-vanila.json
+         sudo scp -r ./variables-dev.json variables.json
+         sudo scp -r ./.github/workflows/tf-python-cdk.yml tf-python-cdk.yml
              
     - name: Input JSON File - Dev
       if: ${{ env.DEV == 'yes' }}
