@@ -28,9 +28,9 @@ The  STACK deploys the following specific resources and software:
 ## DEPLOYING THE CDK STACK
 
 1) To deploy the stack  on ```AWS```, via local computer follow the steps in the following link:
-<strong>CDK for Terraform Application</strong>: https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf
+ https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf
 2) To deploy the stack  on ```AWS```, via <strong>GitHub Actions</strong> see:
-<strong>CDK for Terraform Application</strong>: https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf
+ https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf
   
 
 # License
