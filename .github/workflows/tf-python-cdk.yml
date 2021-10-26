@@ -29,7 +29,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      # note: checkout directory: /home/runner/work/${repo-name}/${CI-name}
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
     
     - name: Set Up Python 3.8
       uses: actions/setup-python@v2
@@ -51,49 +51,38 @@ jobs:
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws @types/node@14.17.27
          sudo chmod 777 *.*
-         df -m
-         free -m
-         pwd
-         ls
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.0"] 
          ' > cdktf.json
-         ##}' > /$CDKTF_INIT_DIRECTORY/cdktf.json
          #sudo cdktf get
-         ##sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/variables-dev.json /$CDKTF_INIT_DIRECTORY/variables.json
-         ##df -m
-         ##free -m
-         ##pwd
-         ##ls
-         
-    - name: Copy Input JSON File - Dev
+
+    - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
-      #run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/variables-dev.json ./$CDKTF_INIT_DIRECTORY/variables.json
-      run: sudo scp -r ./$CDKTF_INIT_DIRECTORY/variables-dev.json ./$CDKTF_INIT_DIRECTORY/variables.json
-   
-      
-    - name: Copy Input JSON File - Prod
-      if: ${{ env.PROD == 'yes' }}
-      #run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/variables-prod.json ./$CDKTF_INIT_DIRECTORY/variables.json
-      run: sudo scp -r ./$CDKTF_INIT_DIRECTORY/variables-prod.json ./$CDKTF_INIT_DIRECTORY/variables.json
-      
-    - name: Copy Bash Start-Up Script 
-    #  run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/startup-script.sh ./$CDKTF_INIT_DIRECTORY/startup-script.sh
-      run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
-      
-    - name: Copy Python Terraform CDK Script
-    #  run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY/main.py ./$CDKTF_INIT_DIRECTORY/main.py
-      run: sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
-        
-    - name: Current Working Directory, Files & Sizes
       run: | 
-         cd ./$CDKTF_INIT_DIRECTORY
-         df -m
-         free -m
-         pwd
-         ls -l
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/variables-dev.json $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/variables.json
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
+        #cd ./$CDKTF_INIT_DIRECTORY
+        pwd
+        df -m
+        free -m
+        ls -l
+
+    - name: Copy Files to Init Directory & List - Prod
+      if: ${{ env.PROD == 'yes' }}
+      run: | 
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/variables-prod.json $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/variables.json
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/main.py $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/main.py
+        sudo scp -r $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/startup-script.sh $BASE_DIRECTORY/UNEMY-Stack-on-AWS-Lightsail/UNEMY-Stack-on-AWS-Lightsail/$CDKTF_INIT_DIRECTORY/startup-script.sh
+        #cd ./$CDKTF_INIT_DIRECTORY
+        pwd
+        df -m
+        free -m
+        ls -l
 
     - name: Python Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
