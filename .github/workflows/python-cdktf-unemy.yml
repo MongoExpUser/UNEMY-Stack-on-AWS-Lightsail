@@ -22,7 +22,7 @@ jobs:
       REPO_NAME: 'UNEMY-Stack-on-AWS-Lightsail'
       CDKTF_VERSION: '0.7.0'
       CONSTRUCTS_VERSION: '10.0.9'
-      NODEJS_VERSION: ''
+      NODEJS_VERSION: '17.0.1'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
       #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -54,13 +54,14 @@ jobs:
          cd $CDKTF_INIT_DIRECTORY
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws @types/node@$NODEJS_VERSION
+         sudo npm -v
          sudo chmod 777 *.*
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
             "terraformProviders": ["aws@~> 3.0"] 
          ' > cdktf.json
-         #sudo cdktf get
+         sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
