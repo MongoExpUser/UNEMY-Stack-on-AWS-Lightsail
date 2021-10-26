@@ -21,7 +21,7 @@ jobs:
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }} 
       # 'UNEMY-Stack-on-AWS-Lightsail'
-      CDKTF_VERSION: '0.7.0'
+      CDKTF_VERSION: '0.6.4.' #'0.7.0'
       CONSTRUCTS_VERSION: '10.0.9'
       NODEJS_VERSION: '14.14.31'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,8 +48,8 @@ jobs:
          sudo apt-get install npm
          sudo npm install -g npm
          sudo npm install -g cdktf-cli@^$CDKTF_VERSION
-         sudo npm install -g cdktf@^$CDKTF_VERSION
-         sudo npm install -g constructs@^$CONSTRUCTS_VERSION
+         #sudo npm install -g cdktf@^$CDKTF_VERSION
+         #sudo npm install -g constructs@^$CONSTRUCTS_VERSION
          pwd
          sudo mkdir $CDKTF_INIT_DIRECTORY
          cd $CDKTF_INIT_DIRECTORY
