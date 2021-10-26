@@ -59,9 +59,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 3.0"] 
+            "terraformProviders": ["aws@~> 3.63.0"] 
          ' > cdktf.json
-         #sudo cdktf get
+         sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
