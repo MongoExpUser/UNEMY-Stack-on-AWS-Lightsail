@@ -71,6 +71,7 @@ jobs:
         df -m
         free -m
         ls -l
+        
     - name: Copy Files to Init Directory & List - Prod
       if: ${{ env.PROD == 'yes' }}
       run: | 
@@ -83,6 +84,7 @@ jobs:
         df -m
         free -m
         ls -l
+        
     - name: Python Terraform CDK Plan
       if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: sudo cdktf synth
