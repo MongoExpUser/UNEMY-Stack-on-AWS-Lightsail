@@ -21,6 +21,7 @@ jobs:
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }} 
       CDKTF_VERSION: '0.7.0'
+      PROVIDER_ONE_AWS: 'aws@~> 3.63.0'
       #CONSTRUCTS_VERSION: '10.0.9'
       #NODEJS_VERSION: '14.17.27'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,9 +60,9 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": ["aws@~> 3.63.0"] 
+            "terraformProviders": [$PROVIDER_ONE_AWS] 
          ' > cdktf.json
-         sudo cdktf get
+         #sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
