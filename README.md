@@ -31,7 +31,8 @@ The  STACK deploys the following specific resources and software:
  <strong>CDK for Terraform Application</strong>: <a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow">https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf</a></p>
   
 2) To deploy the stack  on ```AWS``` via <strong>GitHub Actions</strong> see the following link: <br>
-<strong>GitHub Actions CI</strong>: <a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow">https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/blob/main/.github/workflows/tf-python-cdk.yml</a></p>
+<strong>GitHub Actions CI</strong>: <a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow">https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/blob/main/.github/workflows/cdk-terraform-unemy.yml
+l</a></p>
   
 
 # License
