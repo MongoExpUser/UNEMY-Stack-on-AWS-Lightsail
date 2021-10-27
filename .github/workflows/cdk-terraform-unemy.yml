@@ -20,7 +20,7 @@ jobs:
       CDKTF_INIT_DIRECTORY: 'init'
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }} 
-      CDKTF_VERSION: '0.7.0'
+      CDKTF_VERSION: '0.7.0-pre.384'
       PROVIDER_ONE_AWS: 'aws@~> 3.63.0'
       #CONSTRUCTS_VERSION: '10.0.9'
       #NODEJS_VERSION: '16.x'
