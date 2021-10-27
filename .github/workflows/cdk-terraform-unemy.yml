@@ -42,10 +42,10 @@ jobs:
       with:
         python-version: 3.8
         
-    - name: Set Up Node.js 17.0.1
-      uses: actions/setup-node@v2
-      with:
-        node-version: 17.0.1
+    #- name: Set Up Node.js 17.0.1
+    #  uses: actions/setup-node@v2
+    #  with:
+    #    node-version: 17.0.1
 
     - name: Install Dependencies
       run: | 
@@ -59,23 +59,22 @@ jobs:
          pwd
          sudo mkdir $CDKTF_INIT_DIRECTORY
          cd $CDKTF_INIT_DIRECTORY
-         #sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
-         sudo cdktf init --template="typescript" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
-      
+         sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
+         #sudo cdktf init --template="typescript" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws 
          #sudo npm install @types/node@$NODEJS_VERSION
          sudo chmod 777 *.*
-         #sudo echo ' {
-         #   "language": "python",
-         #   "app": "python3 ./main.py",
-         #   "terraformProviders": [$PROVIDER_ONE_AWS] 
-         #' > cdktf.json
          sudo echo ' {
             "language": "python",
-            "app": "npm run --silent compile && node main.js",
+            "app": "python3 ./main.py",
             "terraformProviders": [$PROVIDER_ONE_AWS] 
          ' > cdktf.json
-         sudo npm instal mysql aws-sdk
+         #sudo echo ' {
+         #   "language": "python",
+         #   "app": "npm run --silent compile && node main.js",
+         #   "terraformProviders": [$PROVIDER_ONE_AWS] 
+         #' > cdktf.json
+         
          #sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
