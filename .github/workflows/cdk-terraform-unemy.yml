@@ -8,7 +8,7 @@ on:
    # matches pull request for all branches and tag names
 
 jobs:
-  Ubuntu-Python-CDKTF:
+  Ubuntu-CDK-Terraform:
     runs-on: ubuntu-latest
     env:
       DEV: 'yes'
@@ -75,7 +75,8 @@ jobs:
             "app": "npm run --silent compile && node main.js",
             "terraformProviders": [$PROVIDER_ONE_AWS] 
          ' > cdktf.json
-         sudo cdktf get
+         sudo npm instal mysql aws-sdk
+         #sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
