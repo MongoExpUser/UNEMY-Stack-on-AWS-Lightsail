@@ -1,5 +1,5 @@
 
-[![CI - UNEMY-Stack-on-AWS-Lighsail](https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/actions/workflows/tf-python-cdk.yml/badge.svg)](https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/actions/workflows/tf-python-cdk.yml)
+[![CI - UNEMY](https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/actions/workflows/cdk-terraform-unemy.yml/badge.svg)](https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/actions/workflows/cdk-terraform-unemy.yml)
 # UNEMY-Stack-on-AWS-Lightsail
 
 <br>
