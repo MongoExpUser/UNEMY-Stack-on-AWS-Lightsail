@@ -37,7 +37,7 @@ jobs:
       # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
     
     #- name: Set Up Python 3.8
-    - name: Set Up Node.js 3.8
+    - name: Set Up Node.js
       #uses: actions/setup-python@v2
       uses: actions/setup-node@v2
       #with:
@@ -65,7 +65,7 @@ jobs:
             "app": "python3 ./main.py",
             "terraformProviders": [$PROVIDER_ONE_AWS] 
          ' > cdktf.json
-         #sudo cdktf get
+         sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
