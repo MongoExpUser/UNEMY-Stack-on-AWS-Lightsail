@@ -20,15 +20,9 @@ jobs:
       CDKTF_INIT_DIRECTORY: 'init'
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }} 
-      #CDKTF_VERSION: '0.6.3'
-      #PROVIDER_ONE_AWS: 'aws@~> 3.0'
-      #PROVIDER_ONE_VULTR: 'vultr@~> 2.5.0'
       CDKTF_VERSION: '0.7.0'
-      PROVIDER_ONE_AWS: 'aws@~> 3.63.0'
-      PROVIDER_ONE_VULTR: 'vultr@~> 2.5.0'
-      #CONSTRUCTS_VERSION: '10.0.9'
-      #NODEJS_VERSION: '16.x'
-      #NODEJS_VERSION: '14.17.27'
+      PROVIDER_AWS: 'aws@~> 3.63.0'
+      PROVIDER_DOCKER: 'docker~> 2.0'
       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #AWS_REGION: ${{ secrets.AWS_REGION }}
       #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -46,41 +40,35 @@ jobs:
       with:
         python-version: 3.8
         
-    - name: Set Up Node.js 17.0.1
-      uses: actions/setup-node@v2
-      with:
-        node-version: 17.0.1
+    #- name: Set Up Node.js 17.0.1
+    #  uses: actions/setup-node@v2
+    #  with:
+    #    node-version: 17.0.1
 
     - name: Install Dependencies
       run: | 
-         #sudo apt-get -y install python3-pip awscli
-         #python3 -m pip install boto3 --upgrade awscli
-         #sudo apt-get install npm
+         sudo apt-get install npm
          sudo npm install -g npm
          sudo npm install -g cdktf-cli@^$CDKTF_VERSION
-         #sudo npm install -g cdktf@^$CDKTF_VERSION
-         #sudo npm install -g constructs@^$CONSTRUCTS_VERSION
          pwd
          sudo mkdir $CDKTF_INIT_DIRECTORY
          cd $CDKTF_INIT_DIRECTORY
          sudo cdktf init --template="python-pip" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          #sudo cdktf init --template="typescript" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
-         sudo npm install -a @cdktf/provider-aws 
-         #sudo npm install -a @cdktf/provider-vultr
-         #sudo npm install @types/node@$NODEJS_VERSION
+         sudo npm install -a @cdktf/provider-aws
+         sudo npm install -a @cdktf/provider-docker
          sudo chmod 777 *.*
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": [$PROVIDER_ONE_VULTR, $PROVIDER_ONE_AWS]  
+            "terraformProviders": [$PROVIDER_AWS, $PROVIDER_DOCKER]  
          ' > cdktf.json
          #sudo echo ' {
          #   "language": "python",
          #   "app": "npm run --silent compile && node main.js",
-         #   "terraformProviders": [$PROVIDER_ONE_AWS, $PROVIDER_ONE_VULTR] 
+         #   "terraformProviders": [$PROVIDER_ONE_AWS] 
          #' > cdktf.json
          
-         #  "terraformProviders": [$PROVIDER_ONE_AWS, $PROVIDER_ONE_VULTR]  
          sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
