@@ -57,6 +57,7 @@ jobs:
          #sudo cdktf init --template="typescript" --local --project-name $PROJECT_NAME --project-description $PROJECT_DESCRIPTION
          sudo npm install -a @cdktf/provider-aws
          sudo npm install -a @cdktf/provider-docker
+         python3 -m pip install vultr
          sudo chmod 777 *.*
          sudo echo ' {
             "language": "python",
@@ -69,7 +70,7 @@ jobs:
          #   "terraformProviders": [$PROVIDER_ONE_AWS] 
          #' > cdktf.json
          
-         sudo cdktf get
+         #sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
