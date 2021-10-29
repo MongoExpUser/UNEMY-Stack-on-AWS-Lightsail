@@ -22,6 +22,7 @@ jobs:
       REPO_NAME: ${{ github.event.repository.name }} 
       CDKTF_VERSION: '0.7.0'
       PROVIDER_ONE_AWS: 'aws@~> 3.63.0'
+      PROVIDER_ONE_VULTR: 'vultr@~> 2.5.0'
       #CONSTRUCTS_VERSION: '10.0.9'
       #NODEJS_VERSION: '16.x'
       #NODEJS_VERSION: '14.17.27'
@@ -72,7 +73,7 @@ jobs:
          #sudo echo ' {
          #   "language": "python",
          #   "app": "npm run --silent compile && node main.js",
-         #   "terraformProviders": [$PROVIDER_ONE_AWS] 
+         #   "terraformProviders": [$PROVIDER_ONE_AWS, PROVIDER_ONE_VULTR] 
          #' > cdktf.json
          
          #sudo cdktf get
