@@ -68,15 +68,16 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": [$PROVIDER_ONE_AWS] 
+            "terraformProviders": [$PROVIDER_ONE_VULTR]  
          ' > cdktf.json
          #sudo echo ' {
          #   "language": "python",
          #   "app": "npm run --silent compile && node main.js",
-         #   "terraformProviders": [$PROVIDER_ONE_AWS, PROVIDER_ONE_VULTR] 
+         #   "terraformProviders": [$PROVIDER_ONE_AWS, $PROVIDER_ONE_VULTR] 
          #' > cdktf.json
          
-         #sudo cdktf get
+         #  "terraformProviders": [$PROVIDER_ONE_AWS, $PROVIDER_ONE_VULTR]  
+         sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
