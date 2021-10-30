@@ -70,7 +70,7 @@ jobs:
          #   "terraformProviders": [$PROVIDER_ONE_AWS] 
          #' > cdktf.json
          
-         #sudo cdktf get
+         cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
