@@ -35,10 +35,10 @@ jobs:
     - uses: actions/checkout@v2
       # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
     
-    - name: Set Up Python 3.7
+    - name: Set Up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7
+        python-version: 3.9
         
     #- name: Set Up Node.js 17.0.1
     #  uses: actions/setup-node@v2
@@ -62,7 +62,7 @@ jobs:
          sudo echo ' {
             "language": "python",
             "app": "python3 ./main.py",
-            "terraformProviders": [$PROVIDER_AWS] # $PROVIDER_DOCKER]  
+            "terraformProviders": [$PROVIDER_AWS, $PROVIDER_DOCKER]  
          ' > cdktf.json
          #sudo echo ' {
          #   "language": "python",
@@ -70,7 +70,7 @@ jobs:
          #   "terraformProviders": [$PROVIDER_ONE_AWS] 
          #' > cdktf.json
          
-         cdktf get
+         #sudo cdktf get
          
     - name: Copy Files to Init Directory & List - Dev
       if: ${{ env.DEV == 'yes' }}
