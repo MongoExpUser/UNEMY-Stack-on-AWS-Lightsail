@@ -27,12 +27,12 @@ The  STACK deploys the following specific resources and software:
 
 ## DEPLOYING THE CDK STACK
 
-1) To deploy the stack  on ```AWS``` via local computer, follow the steps in the following link:<br>
- <strong>CDK for Terraform Application</strong>: <a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow">https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf</a></p>
-  
-2) To deploy the stack  on ```AWS``` via <strong>GitHub Actions</strong> see the following link: <br>
-<strong>GitHub Actions CI</strong>: <a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow">https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/blob/main/.github/workflows/cdk-terraform-unemy.yml
-l</a></p>
+1) To deploy the stack  on <strong>```AWS```</strong> via <strong>Local Computer</strong>, follow the steps in the following link:<br>
+<strong><a href="https://learn.hashicorp.com/tutorials/terraform/cdktf-build-python?in=terraform/cdktf" rel="nofollow"> CDK for Terraform Application</a></p></strong>
+ 
+ 
+2) To deploy the stack  on <strong>```AWS```</strong> via <strong>GitHub Actions</strong> see the following link: <br>
+ <strong><a href="https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/blob/main/.github/workflows/cdk-terraform-unemy.yml" rel="nofollow">CI: UNEMY</a></p></strong>
   
 
 # License
