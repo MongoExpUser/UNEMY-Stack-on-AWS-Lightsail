@@ -163,7 +163,7 @@ install_and_configure_nodejs_web_server () {
 }
 
 install_mysql_server () {
-  if [ $enable_mysql_server = true ]
+  if [ $enable_mysql_server == true ]
   then
     # install mysql
     sudo apt-get update
